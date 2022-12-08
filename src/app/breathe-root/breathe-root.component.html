@@ -1,1 +1,5 @@
-<p>breathe-root works!</p>
+<h1>Allow your mind to quiet.</h1>
+<p>
+    <button autofocus type="button" class="btn btn-primary my-2 mx-5" (click)="start()">Breathe.</button>
+    <ngb-progressbar class="my-2 mx-5" [showValue]="true" type="info" [value]="breathState.fullness"></ngb-progressbar>
+</p>
