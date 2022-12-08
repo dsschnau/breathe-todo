@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-class BreathState {
-  public fullness: number = 0
-}
+import { BoxBreathing } from '../breathing-techniques/box-breathing';
+import { EnergizingBreath } from '../breathing-techniques/energizing-breath';
+import { EqualBreathing } from '../breathing-techniques/equal-breathing';
+import { ExtendedExhale } from '../breathing-techniques/extended-exhale';
+import { RelaxingBreath } from '../breathing-techniques/relaxing-breath';
 
 @Component({
   selector: 'app-breathe-root',
@@ -11,49 +12,32 @@ class BreathState {
 })
 export class BreatheRootComponent implements OnInit {
 
-  protected breathState:BreathState = new BreathState();
+  protected focus: BoxBreathing = new BoxBreathing();
+  protected relieveStress: ExtendedExhale = new ExtendedExhale();
+  protected becomePresent: EqualBreathing = new EqualBreathing();
+  protected energize: EnergizingBreath = new EnergizingBreath();
+  protected unwind: RelaxingBreath = new RelaxingBreath();
 
   ngOnInit(): void {
-    this.breathState = {
-      fullness: 0,
-    };
   }
 
-  protected start(): void {
-    this.inhale(4);
+  startFocus(): void {
+    this.focus.start();
   }
 
-  protected hold(seconds: number) {
-    setTimeout(() => {
-      if(this.breathState.fullness <= 0) {
-        this.inhale(4);
-      } else {
-        this.exhale(4);
-      }
-    }, 1000*seconds);
+  startRelieveStress(): void {
+    this.relieveStress.start();
   }
 
-  protected inhale(seconds: number): void {
-    this.breathState.fullness = 0;
-    let interval = 10/seconds;
-    let intervalId = setInterval(() => {
-      this.breathState.fullness += interval;
-      if (this.breathState.fullness > 100) {
-        clearInterval(intervalId);
-        this.hold(4);
-      }
-    }, 100)
+  startBecomePresent(): void {
+    this.becomePresent.start();
   }
-  
-  protected exhale(seconds: number): void {
-    this.breathState.fullness = 100;
-    let interval = 10/seconds;
-    let intervalId = setInterval(() => {
-      this.breathState.fullness -= interval;
-      if (this.breathState.fullness < 0) {
-        clearInterval(intervalId);
-        this.hold(4);
-      }
-    }, 100)
+
+  startEnergize(): void {
+    this.energize.start();
+  }
+
+  startUnwind(): void {
+    this.unwind.start();
   }
 }

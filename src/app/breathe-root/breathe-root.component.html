@@ -1,5 +1,14 @@
 <h1>Allow your mind to quiet.</h1>
 <p>
-    <button autofocus type="button" class="btn btn-primary my-2 mx-5" (click)="start()">Breathe.</button>
-    <ngb-progressbar class="my-2 mx-5" [showValue]="true" type="info" [value]="breathState.fullness"></ngb-progressbar>
+    <button autofocus type="button" class="btn btn-primary my-2 mx-5" (click)="startFocus()">Focus.</button>
+    <button autofocus type="button" class="btn btn-primary my-2 mx-5" (click)="startRelieveStress()">Relieve Stress.</button>
+    <button autofocus type="button" class="btn btn-primary my-2 mx-5" (click)="startBecomePresent()">Become Present.</button>
+    <button autofocus type="button" class="btn btn-primary my-2 mx-5" (click)="startEnergize()">Energize.</button>
+    <button autofocus type="button" class="btn btn-primary my-2 mx-5" (click)="startUnwind()">Unwind.</button>
+
+    <ngb-progressbar class="my-2 mx-5" [showValue]="true" type="info" [value]="focus.breathState.fullness"></ngb-progressbar>
+    <ngb-progressbar class="my-2 mx-5" [showValue]="true" type="info" [value]="relieveStress.breathState.fullness"></ngb-progressbar>
+    <ngb-progressbar class="my-2 mx-5" [showValue]="true" type="info" [value]="becomePresent.breathState.fullness"></ngb-progressbar>
+    <ngb-progressbar class="my-2 mx-5" [showValue]="true" type="info" [value]="energize.breathState.fullness"></ngb-progressbar>
+    <ngb-progressbar class="my-2 mx-5" [showValue]="true" type="info" [value]="unwind.breathState.fullness"></ngb-progressbar>
 </p>
