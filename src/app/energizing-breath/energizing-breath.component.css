@@ -9,7 +9,7 @@
 /* in for four, out for two */
 
 @keyframes breathing {
-  0% { box-shadow : 0 0 0 18vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
-  66% { box-shadow : 0 0 0 2vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
-  100% { box-shadow : 0 0 0 18vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
+  0% { box-shadow : 0 0 0 18vmin white inset, 0 0 0 50vmin #F23A56 inset; }
+  66% { box-shadow : 0 0 0 2vmin white inset, 0 0 0 50vmin #F23A56 inset; }
+  100% { box-shadow : 0 0 0 18vmin white inset, 0 0 0 50vmin #F23A56 inset; }
 }
