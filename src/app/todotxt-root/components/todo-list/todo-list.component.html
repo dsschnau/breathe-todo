@@ -8,8 +8,10 @@
                 <th scope="col">Creation Date</th>
                 <th scope="col">Description</th>
                 <th scope="col">Actions
-                    <a class="m-1" [routerLink]="" (click)="this.addNew()"><i class="bi bi-calendar-plus"></i></a>
-                    <a class="m-1" [routerLink]="" (click)="this.export(exportTodos)"><i class="bi bi-save-fill"></i></a>
+                    <a class="m-1" [routerLink]="" (click)="this.addNew()"><i title="New"
+                            class="bi bi-calendar-plus"></i></a>
+                    <a class="m-1" [routerLink]="" (click)="this.export(exportTodos)"><i title="Export"
+                            class="bi bi-save-fill"></i></a>
                 </th>
             </tr>
         </thead>
@@ -21,10 +23,12 @@
                 <td>{{ todo.creationDate | date }}</td>
                 <td>{{ todo.description }}</td>
                 <td>
-                    <a class="m-1" [routerLink]="" (click)="this.edit(todo)"><i class="bi bi-pencil"></i></a>
-                    <a class="m-1" [routerLink]="" (click)="this.delete(todo)"><i class="bi bi-calendar-x-fill"></i></a>
+                    <a class="m-1" [routerLink]="" (click)="this.edit(todo)"><i title="Edit"
+                            class="bi bi-pencil"></i></a>
+                    <a class="m-1" [routerLink]="" (click)="this.delete(todo)"><i title="Delete"
+                            class="bi bi-calendar-x-fill"></i></a>
                     <a class="m-1" *ngIf="!todo.isComplete" [routerLink]="" (click)="this.markComplete(todo)"><i
-                            class="bi bi-calendar-check"></i></a>
+                            title="Mark as Complete" class="bi bi-calendar-check"></i></a>
                 </td>
             </tr>
         </tbody>
