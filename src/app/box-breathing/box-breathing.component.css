@@ -6,6 +6,8 @@
     animation: 8s cubic-bezier(0.4, 0.1, 0.5, 0.95) 0s infinite alternate breathing;
 }
 
+/* in for four, hold for four, out for four, hold for four */
+
 @keyframes breathing {
   0% { box-shadow : 0 0 0 2vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
   25% { box-shadow : 0 0 0 2vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }

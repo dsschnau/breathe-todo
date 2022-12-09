@@ -1,0 +1,16 @@
+.breathing {
+    height: 60vmin;
+    width: 60vmin;
+    border: solid 1.2vin #000;
+    border-radius: 100%;
+    animation: 19s cubic-bezier(0.4, 0.1, 0.5, 0.95) 0s infinite normal breathing;
+}
+
+/* in for 4, hold for 7, out for 8 */
+
+@keyframes breathing {
+  0% { box-shadow : 0 0 0 18vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
+  21% { box-shadow : 0 0 0 2vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
+  57% { box-shadow : 0 0 0 2vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
+  100% { box-shadow : 0 0 0 18vmin white inset, 0 0 0 50vmin rgb(30,100,150) inset; }
+}

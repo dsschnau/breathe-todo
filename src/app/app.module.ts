@@ -15,6 +15,10 @@ import {
   TodoListComponent,
 } from './todotxt-root/components/todo-list/todo-list.component';
 import { TodotxtRootComponent } from './todotxt-root/todotxt-root.component';
+import { ExtendedExhaleComponent } from './extended-exhale/extended-exhale.component';
+import { EqualBreathingComponent } from './equal-breathing/equal-breathing.component';
+import { EnergizingBreathComponent } from './energizing-breath/energizing-breath.component';
+import { RelaxingBreathComponent } from './relaxing-breath/relaxing-breath.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { TodotxtRootComponent } from './todotxt-root/todotxt-root.component';
     TodotxtRootComponent,
     BreatheRootComponent,
     TodoListComponent,
-    TodoAddComponent
+    TodoAddComponent,
+    ExtendedExhaleComponent,
+    EqualBreathingComponent,
+    EnergizingBreathComponent,
+    RelaxingBreathComponent
   ],
   imports: [
     BrowserModule,
