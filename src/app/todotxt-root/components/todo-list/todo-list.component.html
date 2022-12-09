@@ -9,6 +9,7 @@
                 <th scope="col">Description</th>
                 <th scope="col">Actions
                     <a class="m-1" [routerLink]="" (click)="this.addNew()"><i class="bi bi-calendar-plus"></i></a>
+                    <a class="m-1" [routerLink]="" (click)="this.export(exportTodos)"><i class="bi bi-save-fill"></i></a>
                 </th>
             </tr>
         </thead>
@@ -22,9 +23,25 @@
                 <td>
                     <a class="m-1" [routerLink]="" (click)="this.edit(todo)"><i class="bi bi-pencil"></i></a>
                     <a class="m-1" [routerLink]="" (click)="this.delete(todo)"><i class="bi bi-calendar-x-fill"></i></a>
-                    <a class="m-1" *ngIf="!todo.isComplete" [routerLink]="" (click)="this.markComplete(todo)"><i class="bi bi-calendar-check"></i></a>
+                    <a class="m-1" *ngIf="!todo.isComplete" [routerLink]="" (click)="this.markComplete(todo)"><i
+                            class="bi bi-calendar-check"></i></a>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<ng-template #exportTodos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Export</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+        <pre><ng-container *ngFor="let todo of this.todo$ | async; index as i">
+{{ this.todo.toString() }}</ng-container>
+        </pre>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close()">Close</button>
+    </div>
+</ng-template>

@@ -37,15 +37,19 @@ export class TodoListComponent implements OnInit {
   }
 
   addNew() {
-    this.modalService.open(TodoItemModalComponent, { backdrop : 'static', keyboard : false});
+    this.modalService.open(TodoItemModalComponent, { backdrop : 'static', keyboard : false });
   }
 
   edit(todo: ITodo) {
-    const modelRef = this.modalService.open(TodoItemModalComponent, { backdrop : 'static', keyboard : false});
+    const modelRef = this.modalService.open(TodoItemModalComponent, { backdrop : 'static', keyboard : false });
     modelRef.componentInstance.todo = todo;
   }
 
   delete(todo: ITodo) {
     this.todoService.delete(todo);
+  }
+
+  export(exportTodos: any) {
+		this.modalService.open(exportTodos, { size: "lg", backdrop : 'static', keyboard : false, scrollable: true });
   }
 }
