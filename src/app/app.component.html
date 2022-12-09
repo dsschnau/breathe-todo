@@ -1,8 +1,23 @@
-<h1>hello world todotxt-breathing</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/todotxt-root" routerLinkActive="active" ariaCurrentWhenActive="page">Todotxt root</a></li>
-    <li><a routerLink="/breathe-root" routerLinkActive="active" ariaCurrentWhenActive="page">Breathe root</a></li>
-  </ul>
+<nav class="navbar navbar-expand bg-light">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">Breathe. Capture your work.</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/breathe-root" routerLinkActive="active" ariaCurrentWhenActive="page">Breathe.</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/todotxt-root" routerLinkActive="active" ariaCurrentWhenActive="page">Capture.</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
+
 <router-outlet></router-outlet>
