@@ -7,17 +7,17 @@
                 <th scope="col">Completion Date</th>
                 <th scope="col">Creation Date</th>
                 <th scope="col">Description</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Actions <a [routerLink]="" (click)="this.emitAddNew()"><i class="bi bi-calendar-plus"></i></a></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let todo of this.todoService.todo$ | async; index as i">
-                <td><input type="checkbox" [checked]="this.todo.isComplete" disabled /></td>
-                <td>{{ this.todo.priority }}</td>
-                <td>{{ this.todo.completionDate | date }}</td>
-                <td>{{ this.todo.creationDate | date }}</td>
-                <td>{{ this.todo.description }}</td>
-                <td>Edit, <a [routerLink]="" (click)="this.markComplete(todo)">Mark Complete</a></td>
+            <tr *ngFor="let todo of this.todo$ | async; index as i">
+                <td><input type="checkbox" [checked]="todo.isComplete" readonly /></td>
+                <td>{{ todo.priority }}</td>
+                <td>{{ todo.completionDate | date }}</td>
+                <td>{{ todo.creationDate | date }}</td>
+                <td>{{ todo.description }}</td>
+                <td><a [routerLink]="" (click)="this.emitEdit(todo)"><i class="bi bi-pencil"></i></a> &nbsp; <a *ngIf="!todo.isComplete" [routerLink]="" (click)="this.markComplete(todo)"><i class="bi bi-calendar-check"></i></a></td>
             </tr>
         </tbody>
     </table>
