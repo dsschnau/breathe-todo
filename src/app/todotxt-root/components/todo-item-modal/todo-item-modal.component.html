@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ this.todo ? 'Edit' : 'Add' }} Todo Item</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+</div>
+<form name="todoForm">
+    <div class="modal-body">
+        <div class="container">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="description" id="description"
+                    [(ngModel)]="this.todoBeingEdited.description">
+            </div>
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <select [(ngModel)]="this.todoBeingEdited.priority" name="priority" id="priority">
+                    <option value="" disabled selected>Select Priority</option>
+                    <option *ngFor="let priority of this.todoService.prioritie$ | async">{{priority}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" (click)="save()" type="button">Ok</button>
+        <button class="btn" (click)="cancel()" type="button">Cancel</button>
+    </div>
+</form>

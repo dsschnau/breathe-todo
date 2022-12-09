@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -9,16 +8,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BreatheRootComponent } from './breathe-root/breathe-root.component';
 import {
-  TodoAddComponent,
-} from './todotxt-root/components/todo-add/todo-add.component';
+  EnergizingBreathComponent,
+} from './energizing-breath/energizing-breath.component';
+import {
+  EqualBreathingComponent,
+} from './equal-breathing/equal-breathing.component';
+import {
+  ExtendedExhaleComponent,
+} from './extended-exhale/extended-exhale.component';
+import {
+  RelaxingBreathComponent,
+} from './relaxing-breath/relaxing-breath.component';
+import {
+  TodoItemModalComponent,
+} from './todotxt-root/components/todo-item-modal/todo-item-modal.component';
 import {
   TodoListComponent,
 } from './todotxt-root/components/todo-list/todo-list.component';
 import { TodotxtRootComponent } from './todotxt-root/todotxt-root.component';
-import { ExtendedExhaleComponent } from './extended-exhale/extended-exhale.component';
-import { EqualBreathingComponent } from './equal-breathing/equal-breathing.component';
-import { EnergizingBreathComponent } from './energizing-breath/energizing-breath.component';
-import { RelaxingBreathComponent } from './relaxing-breath/relaxing-breath.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +33,11 @@ import { RelaxingBreathComponent } from './relaxing-breath/relaxing-breath.compo
     TodotxtRootComponent,
     BreatheRootComponent,
     TodoListComponent,
-    TodoAddComponent,
     ExtendedExhaleComponent,
     EqualBreathingComponent,
     EnergizingBreathComponent,
-    RelaxingBreathComponent
+    RelaxingBreathComponent,
+    TodoItemModalComponent
   ],
   imports: [
     BrowserModule,

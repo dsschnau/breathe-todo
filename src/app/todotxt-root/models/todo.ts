@@ -68,9 +68,30 @@ export default class Todo implements ITodo {
       tokens.shift();
     }
 
-    // this.projectTags = []; // @
-    // this.contextTags = []; // +
-    // this.specialTags = []; // key:value
+    this.projectTags = []; // @
+    tokens.forEach((t, i, a) => {
+      if (t.startsWith('@')) {
+        this.projectTags?.push(t);
+        a.splice(i, 1);
+      }
+    });
+
+    this.contextTags = []; // +
+    tokens.forEach((t, i, a) => {
+      if (t.startsWith('+')) {
+        this.contextTags?.push(t);
+        a.splice(i, 1);
+      }
+    });
+
+    this.specialTags = []; // key:value
+    tokens.forEach((t, i, a) => {
+      // TODO: Do this better
+      if (t.includes(':')) {
+        this.specialTags?.push(t);
+        a.splice(i, 1);
+      }
+    });
 
     this.description = tokens.join(' ');
   }

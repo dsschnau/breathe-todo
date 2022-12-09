@@ -1,8 +1,6 @@
 import {
   Component,
-  EventEmitter,
   OnInit,
-  Output,
 } from '@angular/core';
 
 import {
@@ -10,8 +8,13 @@ import {
   Observable,
 } from 'rxjs';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { ITodo } from '../../models/todo';
 import { TodoService } from '../../services/todo.service';
+import {
+  TodoItemModalComponent,
+} from '../todo-item-modal/todo-item-modal.component';
 
 @Component({
   selector: 'app-todo-list',
@@ -23,13 +26,7 @@ export class TodoListComponent implements OnInit {
   private todos: BehaviorSubject<Array<ITodo>> = new BehaviorSubject<Array<ITodo>>([]);
   todo$: Observable<Array<ITodo>> = this.todos.asObservable();
 
-  @Output()
-  addTodo: EventEmitter<any> = new EventEmitter<any>();
-
-  @Output()
-  editTodo: EventEmitter<ITodo> = new EventEmitter<ITodo>();
-
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.todoService.todo$.subscribe(todos => this.todos.next(todos));
@@ -39,11 +36,16 @@ export class TodoListComponent implements OnInit {
     this.todoService.complete(todo);
   }
 
-  emitAddNew() {
-    this.addTodo.emit();
+  addNew() {
+    this.modalService.open(TodoItemModalComponent, { backdrop : 'static', keyboard : false});
   }
 
-  emitEdit(todo: ITodo) {
-    this.editTodo.emit(todo);
+  edit(todo: ITodo) {
+    const modelRef = this.modalService.open(TodoItemModalComponent, { backdrop : 'static', keyboard : false});
+    modelRef.componentInstance.todo = todo;
+  }
+
+  delete(todo: ITodo) {
+    this.todoService.delete(todo);
   }
 }
