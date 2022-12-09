@@ -1,0 +1,24 @@
+<div class="main">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Completed</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Completion Date</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of this.todoService.todo$ | async; index as i">
+                <td><input type="checkbox" [checked]="this.todo.isComplete" disabled /></td>
+                <td>{{ this.todo.priority }}</td>
+                <td>{{ this.todo.completionDate | date }}</td>
+                <td>{{ this.todo.creationDate | date }}</td>
+                <td>{{ this.todo.description }}</td>
+                <td>Edit, <a [routerLink]="" (click)="this.markComplete(todo)">Mark Complete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

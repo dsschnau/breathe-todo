@@ -1,0 +1,22 @@
+<div class="form">
+    <div class="input-group">
+        <label>Description:</label>
+        <input [(ngModel)]="todo.description" type="text" class="form-control">
+    </div>
+    <div class="input-group">
+        <label>Priority:</label>
+        <select [(ngModel)]="todo.priority">
+            <option disabled>Select Priority</option>
+            <option *ngFor="let priority of this.priorityList">{{priority}}</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label>Completion Date:</label>
+        <input class="form-control" placeholder="yyyy-mm-dd" name="datePicker" ngbDatepicker #d="ngbDatepicker" />
+        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+    </div>
+    <span class="input-group-btn">
+        <button class="btn btn-default" (click)="add()" type="button">
+            <span class="glyphicon glyphicon-plus"></span> Add Task</button>
+    </span>
+</div>
